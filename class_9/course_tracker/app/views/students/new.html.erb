@@ -1,0 +1,6 @@
+<%= form_for @student, url: "/students", method: :post do |f| %>
+  <%= f.text_field :name, :placeholder => "Name" %>
+  <%= f.text_field :email, :placeholder => "Email" %>
+  <%= f.text_field :age, :placeholder => "Age" %>
+  <button>Submit</button>
+<% end %>

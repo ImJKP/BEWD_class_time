@@ -1,0 +1,13 @@
+<table>
+<% @pets.each do |pet| %>
+  <tr>
+  <td><p><%= pet.name %></p></td>
+  <td><p><%= pet.age %></p></td>
+  <td><p><%= pet.gender %></p></td>
+  <td><p><%= pet.species %></p></td>
+  </tr>
+<% end %>
+</table>
+
+<% form_for(@pet) do |f| %>
+<% end %>

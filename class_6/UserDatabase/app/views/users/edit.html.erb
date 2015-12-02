@@ -1,38 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-	<title>User Database</title>
-
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="libraries/bootstrap.css" />
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="libraries/bootstrap-theme.css" />
-
-	<style>
-		.bold {
-			font-weight:bold;
-		}
-
-		.margin-top-20 {
-			margin-top:20px;
-		}
-
-		.small-container {
-			width:700px;
-			margin-left:auto;
-			margin-right:auto;
-		}
-
-		.txt-right {
-			text-align:right;
-		}
-	</style>
-</head>
-
-<body>
-
 <div class="small-container">
 	<h1>User Database</h1>
 
@@ -42,44 +7,41 @@
 </div>
 
 <div class="small-container margin-top-20">
+  <%= form_for(@user, method: "PUT") do |f| %>
 	<div class="well">
 		<div class="bold">
 			First Name
 		</div>
 		<div class="margin-top-20">
-			<input type="text" class="form-control" />
+			<%= f.text_field :firstname, :class => "form-control" %>
 		</div>
 		<div class="bold margin-top-20">
 			Last Name
 		</div>
 		<div class="margin-top-20">
-			<input type="text" class="form-control" />
+			<%= f.text_field :lastname, :class => "form-control" %>
 		</div>
 		<div class="bold margin-top-20">
 			Username
 		</div>
 		<div class="margin-top-20">
-			<input type="text" class="form-control" />
+      <%= f.text_field :username, :class => "form-control" %>
 		</div>
 		<div class="bold margin-top-20">
 			Role
 		</div>
 		<div class="margin-top-20">
-			<input type="text" class="form-control" />
+			<%= f.text_field :username, :class => "form-control" %>
 		</div>
 		<div class="margin-top-20 txt-right">
 			<a href="#" class="btn btn-default">Cancel</a>
 			<button type="submit" class="btn btn-primary">Edit User</button>
 		</div>
 	</div>
+	<% end %>
 </div>
 
-<!--jQuery-->
-<script src="libraries/jquery.js"></script>
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="libraries/bootstrap.js"></script>
-
-</body>
-
-</html>
+<%= form_for(user_path(@user.id), method: "DELETE") do %>
+  <button type="submit" class="btn btn-danger">Delete User</button>
+<% end %>

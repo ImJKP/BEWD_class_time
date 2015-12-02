@@ -1,0 +1,38 @@
+<h1>Students</h1>
+<table>
+  <tr><td>ID</td><td>Name</td><td>Email</td><td>Age</td></tr>
+  <% @students.each do |student| %>
+  <tr>
+    <td><%= student.id %></td>
+    <td><%= student.name %></td>
+    <td><%= student.email %></td>
+    <td><%= student.age %></td>
+    <td><button href="#">Add enrollment</button></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= form_for @student do |f| %>
+  <%= f.text_field :name, :placeholder => "Name" %>
+  <%= f.text_field :email, :placeholder => "Email" %>
+  <%= f.text_field :age, :placeholder => "Age" %>
+  <button>Submit</button>
+<% end %>
+
+<h2>Enrollments</h2>
+<table>
+<tr><td>ID</td><td>Student</td><td>Course</td></tr>
+<% @enrollments.each do |enrollment| %>
+  <tr>
+  <td><%= enrollment.id %></td>
+  <td><%= enrollment.student_id %></td>
+  <td><%= enrollment.course_id %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= form_for @enrollment, url: "/enrollments/create", method: :post do |f| %>
+<%= f.text_field :student_id, :placeholder => "Student ID" %>
+<%= f.text_field :course_id, :placeholder => "Course ID" %>
+<button>Submit</button>
+<% end %>
